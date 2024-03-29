@@ -9,8 +9,7 @@ export default {
         extend: {
             fontFamily: {
                 heading: "Catamaran",
-                accent: "Old Standard TT",
-                body: "Inter",
+                main: "Poppins",
             },
             colors: {
                 dark: "#1A2238",
