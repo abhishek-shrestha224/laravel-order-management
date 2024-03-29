@@ -3,7 +3,6 @@
 @section('content')
     <section class="flex h-screen w-screen flex-col items-center justify-center">
         <h1 class="text-center text-9xl font-bold">Hello World🚀</h1>
-        <p>{{ session('message') }}</p>
         <div>
             <a href="/orders/create">
                 <button
@@ -20,5 +19,6 @@
                 </button>
             </a>
         </div>
+        <p class="text-gray-400  font-bold text-lg">{{ session('message') }}</p>
     </section>
 @endsection

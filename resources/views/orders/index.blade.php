@@ -16,6 +16,7 @@
                Create New Order
             </button>
         </a>
+        <p class="text-gray-400  mb-2 font-bold text-lg">{{ session('message') }}</p>
         <div class="relative overflow-x-auto shadow-md">
             <table class="text-light text-md w-full text-left">
                 <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">

@@ -67,6 +67,6 @@ class OrderController extends Controller
     public function destroy($slug)
     {
         $order = Order::findOrFail($slug)->delete();
-        return redirect('/orders');
+        return redirect('/orders')->with('message', 'Order Completed Sucessfully');
     }
 }
