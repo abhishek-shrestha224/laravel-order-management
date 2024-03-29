@@ -12,6 +12,6 @@ Route::post('/orders', [OrderController::class, 'store']);
 Route::get('/orders/{slug}', [OrderController::class, 'show'])->middleware('auth');
 Route::delete('/orders/{slug}', [OrderController::class, 'destroy'])->middleware('auth');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
