@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->string('product');
+            $table->enum('product', ['Wallet', 'Hat', 'Flower Pot', 'T-Shirt', 'Shoes']);
             $table->enum('weight', ['1kg', '2kg', '5kg'])->default('1kg');
             $table->timestamps();
         });

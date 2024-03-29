@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -11,4 +12,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('*', fn() => view('not-found'));
+Route::get('/orders', [OrderController::class, 'index']);
+Route::get('/orders/create', [OrderController::class, 'create']);
+Route::get('/orders/{slug}', [OrderController::class, 'show']);
