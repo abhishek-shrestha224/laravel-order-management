@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateOrderRequest;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -28,9 +29,11 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateOrderRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        $order = Order::create($validatedData);
+        return redirect("/orders");
     }
 
     /**
@@ -64,6 +67,6 @@ class OrderController extends Controller
     public function destroy($slug)
     {
         $order = Order::findOrFail($slug)->delete();
-        return redirect("/orders");
+        return redirect('/orders');
     }
 }

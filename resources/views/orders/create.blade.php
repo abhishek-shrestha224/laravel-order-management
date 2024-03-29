@@ -5,15 +5,15 @@
         <h1 class="mb-4 text-4xl font-bold">
             Create New Order </h1>
 
-        <form class="mx-auto flex w-[600px] flex-col gap-4 text-left">
-
+        <form class="mx-auto flex w-[600px] flex-col gap-4 text-left" action="/orders" method="POST">
+            @csrf
             <div>
                 <label class="mb-2 block text-lg font-bold text-gray-900 dark:text-white" for="name">
                     Enter Your Name:
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="name" type="text">
+                    id="name" type="text" name="name" required>
             </div>
 
             <div>
@@ -22,7 +22,7 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="address" type="text">
+                    id="address" type="text" name="address" required>
             </div>
 
             <label class="mb-2 block text-lg font-bold text-gray-900 dark:text-white" for="products">
@@ -32,7 +32,7 @@
             <div>
                 <select
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="products">
+                    id="products" name="product" required>
                     <option selected hidden>
                         Choose an item
                     </option>
@@ -60,7 +60,7 @@
                 </label>
                 <select
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="products">
+                    id="products" name="weight" required>
                     <option selected value="1kg">
                         1kg
                     </option>
@@ -73,7 +73,7 @@
                 </select>
             </div>
             <input
-                class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-lg font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800 cursor-pointer"
+                class="mb-2 me-2 cursor-pointer rounded-lg border border-gray-800 px-5 py-2.5 text-center text-lg font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
                 type="submit" value="Create Order" />
         </form>
 
