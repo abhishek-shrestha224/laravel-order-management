@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
 </head>
-<body class="bg-zinc-200 text-slate-900">
+<body class="bg-dark text-light">
     @yield('content')
 </body>
 

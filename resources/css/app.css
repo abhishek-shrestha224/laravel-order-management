@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Inter:wght@100..900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body,
 p {
-    font-family: "Inter", sans-serif;
+    font-family: "Catamaran", sans-serif;
     font-weight: 400;
 }

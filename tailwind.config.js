@@ -12,6 +12,11 @@ export default {
                 accent: "Old Standard TT",
                 body: "Inter",
             },
+            colors: {
+                dark: "#1A2238",
+                light: "#fff",
+                accent: "#FF6A3D",
+            },
         },
     },
     plugins: [],
