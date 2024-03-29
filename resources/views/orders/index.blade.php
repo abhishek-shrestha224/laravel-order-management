@@ -3,18 +3,30 @@
 @section('content')
     <section class="w-screen px-10 py-20">
         <h1 class="mb-4 text-6xl font-bold">All Orders</h1>
-
+        <a href="/">
+            <button
+                class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
+                type="button">
+                Go Back Home
+            </button>
+        </a>    <a href="/orders/create">
+            <button
+                class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
+                type="button">
+               Create New Order
+            </button>
+        </a>
         <div class="relative overflow-x-auto shadow-md">
             <table class="text-light text-md w-full text-left">
                 <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th class="px-6 w-4 py-3" scope="col">
+                        <th class="w-4 px-6 py-3" scope="col">
                             Id
                         </th>
-                        <th class="px-6 w-[300px] py-3" scope="col">
+                        <th class="w-[300px] px-6 py-3" scope="col">
                             Name
                         </th>
-                        <th class="px-6  py-3" scope="col">
+                        <th class="px-6 py-3" scope="col">
                             Address
                         </th>
                         <th class="px-6 py-3" scope="col">
@@ -23,7 +35,7 @@
                         <th class="px-6 py-3" scope="col">
                             Weight
                         </th>
-                        <th class=" w-[200px] px-6 py-3" scope="col">
+                        <th class="w-[200px] px-6 py-3" scope="col">
                             Action
                         </th>
 
@@ -63,7 +75,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <input
-                                        class="mb-2 me-2 cursor-pointer rounded-lg border border-gray-800 px-5 py-2.5 text-center font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
+                                        class="mb-2 me-2 cursor-pointer rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
                                         type="submit" value="Compelete Order" />
                                 </form>
                             </td>

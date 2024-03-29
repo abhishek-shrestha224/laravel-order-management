@@ -3,9 +3,17 @@
 @section('content')
     <section class="flex h-screen w-screen flex-col items-center justify-center px-10 py-20 text-center">
         <h1 class="mb-4 text-4xl font-bold">
-            Create New Order </h1>
+            Create New Order
+        </h1>
 
         <form class="mx-auto flex w-[600px] flex-col gap-4 text-left" action="/orders" method="POST">
+            <a href="/">
+                <button
+                    class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
+                    type="button">
+                    Go Back Home
+                </button>
+            </a>
             @csrf
             <div>
                 <label class="mb-2 block text-lg font-bold text-gray-900 dark:text-white" for="name">
