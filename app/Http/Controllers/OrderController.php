@@ -36,9 +36,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show($slug)
     {
-        //
+        $order = Order::findOrFail($slug);
+        return view('orders.show', ['order' => $order]);
     }
 
     /**

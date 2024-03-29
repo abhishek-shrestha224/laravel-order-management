@@ -32,58 +32,65 @@
                 <tbody>
                     @foreach ($orders as $order)
                         <tr class="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
-                            <th class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                                 scope="row">
-                                {{ $order->id }}
-                            </th>
-                            <td class="pxn-6 py-4">
-                                {{ $order->name }}
+                                <a href="{{ url('/orders/') }}/{{ $order->id }}">
+                                    {{ $order->id }}
+                                </a>
                             </td>
                             <td class="px-6 py-4">
-                                {{ $order->address }}
+                                <a href="{{ url('/orders/') }}/{{ $order->id }}">
+                                    {{ $order->name }}
+                                </a>
                             </td>
                             <td class="px-6 py-4">
-                                {{ $order->product }}
+                                <a href="{{ url('/orders/') }}/{{ $order->id }}">
+                                    {{ $order->address }}
+                                </a>
                             </td>
                             <td class="px-6 py-4">
-                                {{ $order->weight }}
+                                <a href="{{ url('/orders/') }}/{{ $order->id }}">
+                                    {{ $order->product }}
+                                </a>
                             </td>
                             <td class="px-6 py-4">
-                                <a class="complete-link underline" href="#">Compelete</a>
+                                <a href="{{ url('/orders/') }}/{{ $order->id }}">
+                                    {{ $order->weight }}
+                                </a>
+                            </td>
+                            <td class="px-6 py-4">
+                                <a class="complete-link underline" data-order-id="{{ $order->id }}" href="#">
+                                    Complete
+                                </a>
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
+
             </table>
         </div>
 
     </section>
 
-    <!-- Include Axios for making AJAX requests -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
-        // Add click event listener to all elements with class 'complete-link'
         document.querySelectorAll('.complete-link').forEach(link => {
             link.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior
+                event.preventDefault();
 
-                // Get the order ID from the data-order-id attribute
+
                 const orderId = this.getAttribute('data-order-id');
 
-                // Confirm with the user before proceeding with deletion
+
                 if (confirm('Are you sure you want to complete this order?')) {
-                    // Send DELETE request to the server
+
                     axios.delete(`/orders/${orderId}`)
                         .then(response => {
-                            // Handle successful response
                             console.log(response.data);
-                            // Optionally, you can reload the page or update the UI accordingly
                             window.location.reload();
                         })
                         .catch(error => {
-                            // Handle error
                             console.error(error);
                         });
                 }
