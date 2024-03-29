@@ -59,8 +59,10 @@
                                 </a>
                             </td>
                             <td class="px-6 py-4">
-                                <a class="complete-link underline" data-order-id="{{ $order->id }}" href="#">
-                                    Complete
+                                <a href="{{ url('/orders/') }}/{{ $order->id }}/destroy">
+                                    <button class="underline">
+                                        Compelete Now
+                                    </button>
                                 </a>
                             </td>
                         </tr>
@@ -71,30 +73,4 @@
         </div>
 
     </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <script>
-        document.querySelectorAll('.complete-link').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-
-
-                const orderId = this.getAttribute('data-order-id');
-
-
-                if (confirm('Are you sure you want to complete this order?')) {
-
-                    axios.delete(`/orders/${orderId}`)
-                        .then(response => {
-                            console.log(response.data);
-                            window.location.reload();
-                        })
-                        .catch(error => {
-                            console.error(error);
-                        });
-                }
-            });
-        });
-    </script>
 @endsection

@@ -15,3 +15,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/orders', [OrderController::class, 'index']);
 Route::get('/orders/create', [OrderController::class, 'create']);
 Route::get('/orders/{slug}', [OrderController::class, 'show']);
+Route::get('/orders/{slug}/destroy', [OrderController::class, 'destroy']);

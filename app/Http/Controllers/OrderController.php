@@ -61,8 +61,9 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy($slug)
     {
-        //
+        $order = Order::findOrFail($slug)->delete();
+        return redirect("/orders");
     }
 }
