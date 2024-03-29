@@ -38,24 +38,16 @@
                     </li>
                 @endif
             @else
-                <li class="nav-item dropdown flex gap-4">
-                    <a class="nav-link dropdown-toggle font-regular text-xl" id="navbarDropdown" data-bs-toggle="dropdown" href="#"
-                        role="button" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-md font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form class="d-none" id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
+            <div class="nav-item flex items-center justify-center gap-4">
+                <a class="nav-link font-regular text-xl" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ Auth::user()->name }}
+                </a>
+                <form class="d-none" id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <input type="submit" value="Logout"  class="rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800 h-full">
+                </form>
+            </div>
+            
             @endguest
         </ul>
         <main class="py-4">
