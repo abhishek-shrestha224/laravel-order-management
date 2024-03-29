@@ -8,13 +8,13 @@
             <table class="text-light text-md w-full text-left">
                 <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th class="w-4 px-2 py-3" scope="col">
+                        <th class="px-6 py-3" scope="col">
                             Id
                         </th>
-                        <th class="w-56 px-6 py-3" scope="col">
+                        <th class="px-6 py-3" scope="col">
                             Name
                         </th>
-                        <th class="w-76 px-6 py-3" scope="col">
+                        <th class="px-6 py-3" scope="col">
                             Address
                         </th>
                         <th class="px-6 py-3" scope="col">
@@ -32,9 +32,9 @@
                 <tbody>
                     @foreach ($orders as $order)
                         <tr class="border-b odd:bg-white even:bg-gray-50 odd:dark:bg-gray-900 even:dark:bg-gray-800">
-                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                            <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white w-8"
                                 scope="row">
-                                <a href="{{ url('/orders/') }}/{{ $order->id }}">
+                                <a href="{{ url('/orders/') }}/{{ $order->id }}" class=" w-full">
                                     {{ $order->id }}
                                 </a>
                             </td>
