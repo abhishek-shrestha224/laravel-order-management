@@ -33,7 +33,7 @@ class OrderController extends Controller
     {
         $validatedData = $request->validated();
         $order = Order::create($validatedData);
-        return redirect("/orders");
+        return redirect('/')->with('message', 'Thank You for ordering.');
     }
 
     /**

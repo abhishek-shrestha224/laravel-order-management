@@ -15,4 +15,4 @@ Route::get('/orders', [OrderController::class, 'index']);
 Route::get('/orders/create', [OrderController::class, 'create']);
 Route::post('/orders', [OrderController::class, 'store']);
 Route::get('/orders/{slug}', [OrderController::class, 'show']);
-Route::get('/orders/{slug}/destroy', [OrderController::class, 'destroy']);
+Route::delete('/orders/{slug}', [OrderController::class, 'destroy']);
