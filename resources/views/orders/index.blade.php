@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    <section class="z-1 w-screen px-10 py-20">
-        <h1 class="font-heading mb-4 text-6xl font-bold">All Orders</h1>
+    <section class="w-screen px-10 py-20">
+        <h1 class="mb-4 text-6xl font-bold">All Orders</h1>
 
         <div class="relative overflow-x-auto shadow-md">
             <table class="text-light text-md w-full text-left">
