@@ -14,4 +14,5 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/products', [ProductController::class, 'index']);
-Route::get('/product/{slug}', [fn($id) => ['id' => $id]]);
+Route::get('/products/create', [ProductController::class, 'create']);
+Route::get('/products/{slug}', [ProductController::class, 'show']);
