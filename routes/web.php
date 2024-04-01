@@ -34,7 +34,7 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('contents/home/edit', [ContentController::class, 'edit'])
+Route::get('contents/{slug}/edit', [ContentController::class, 'edit'])
     ->middleware('auth')
     ->name('cms.edit');
 Route::put('contents/home', [ContentController::class, 'update'])

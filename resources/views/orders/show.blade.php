@@ -35,7 +35,7 @@
                         Show all Orders
                     </button>
                 </a>
-                <form action="route('orders.destroy', ['slug' => $order->id])" method="POST">
+                <form action="{{route('orders.destroy', ['slug' => $order->id])}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <input

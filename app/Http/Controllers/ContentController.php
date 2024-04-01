@@ -43,7 +43,7 @@ class ContentController extends Controller
      */
     public function edit($slug)
     {
-        $content = Content::findOrFail($slug);
+        $content = Content::where('name', 'home')->firstOrFail();
         return view('cms.edit', ['content' => $content]);
     }
 

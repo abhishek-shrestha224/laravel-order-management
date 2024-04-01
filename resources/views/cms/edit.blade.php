@@ -24,7 +24,7 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="title" type="text" name="title" value="hello">
+                    id="title" type="text" name="title" value="{{ $content->title }}">
             </div>
 
             <div>
@@ -33,7 +33,7 @@
                     message</label>
                 <textarea
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="message" name="message"  rows="12">Hello</textarea>
+                    id="message" name="message" rows="6">{{ $content->message }}</textarea>
 
             </div>
             <div>
@@ -42,7 +42,7 @@
                 </label>
                 <input
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                    id="cta_text" type="text" name="cta_text" >
+                    id="cta_text" type="text" name="cta_text" value="{{ $content->cta_text }}">
             </div>
             <div>
                 <label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white" for="bg_img">
@@ -50,7 +50,7 @@
                 </label>
                 <input
                     class="file:text-md block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 file:me-4 file:border-0 file:bg-gray-50 file:px-4 file:py-3 file:font-bold file:tracking-wide file:hover:bg-gray-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400 dark:file:bg-gray-600 dark:file:text-gray-100"
-                    type="file" name="bg_img">
+                    type="file" name="bg_img" value="{{ $content->bg_img }}">
 
             </div>
 
