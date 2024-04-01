@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('title')
+    <title>reRecylce :: {{ $order->name }}</title>
+@endsection
+
 @section('content')
     <section class="flex h-screen w-screen flex-col items-center justify-center px-10 py-20 text-center">
         <h1 class="mb-4 text-4xl font-bold">Order for {{ $order->name }}</h1>

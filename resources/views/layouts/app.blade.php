@@ -7,15 +7,11 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'reRecylce') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link rel="shortcut icon" href="{{ asset('img/logo.webp') }}" type="image/x-icon">
+    <title>reRecylce :: Login</title>
     <link rel="stylesheet" href="/css/main.css">
     <!-- Scripts -->
     @viteReactRefresh
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @vite('resources/css/app.css')
 </head>
 

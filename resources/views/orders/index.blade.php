@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('title')
+    <title>reRecylce :: All Orders</title>
+@endsection
+
 @section('content')
     <section class="w-screen px-10 py-20">
         <h1 class="mb-4 text-6xl font-bold">All Orders</h1>

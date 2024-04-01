@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>404 | Not Found</title>
+    <title>404 :: Not Found</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
@@ -16,8 +16,8 @@
             Page Not Found
         </div>
         <button class="mt-5">
-            <a class="text-accent group relative inline-block text-sm font-medium focus:outline-none focus:ring active:text-accent"
-                href="/">
+            <a class="text-accent active:text-accent group relative inline-block text-sm font-medium focus:outline-none focus:ring"
+                href="{{ route('home') }}">
                 <span
                     class="bg-accent absolute inset-0 translate-x-0.5 translate-y-0.5 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
 

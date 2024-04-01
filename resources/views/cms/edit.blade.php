@@ -1,4 +1,7 @@
 @extends('layouts.layout')
+@section('title')
+    <title>reRecylce :: Edit Home Page</title>
+@endsection
 
 @section('content')
     <section class="flex h-screen w-screen flex-col items-center justify-center px-10 py-20 text-center">

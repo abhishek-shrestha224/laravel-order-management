@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
+@section('title')
+    <title>reRecylce :: Home</title>
+@endsection
+
 @section('content')
     <section class="backgroundImg">
         <div class="backgroundOverlay flex">
