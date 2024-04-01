@@ -28,7 +28,6 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -42,9 +41,10 @@ class ContentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit($slug)
     {
-        return view('cms.edit');
+        $content = Content::findOrFail($slug);
+        return view('cms.edit', ['content' => $content]);
     }
 
     /**
@@ -52,7 +52,22 @@ class ContentController extends Controller
      */
     public function update(Request $request, Content $content)
     {
-        //
+        $request->validate([
+            'title' => 'nullable|string|max:255',
+            'message' => 'nullable|string|max:255',
+            'cta_text' => 'nullable|string|max:255',
+            'bg_img' => 'nullable|mimes:png,jpg,jpeg',
+        ]);
+
+        if ($request->hasFile('bg_img')) {
+            $file = $request->file('bg_img');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/', $filename);
+
+            $content->bg_img = $filename;
+            $content->save();
+        }
     }
 
     /**

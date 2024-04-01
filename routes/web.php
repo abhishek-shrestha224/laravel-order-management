@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\OrderController;
+use App\Models\Content;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $isLoggedIn = Auth::check();
-    return view('welcome', ['isLoggedIn' => $isLoggedIn]);
+    $content = Content::where('name', 'home')->firstOrFail();
+    return view('welcome', ['isLoggedIn' => $isLoggedIn, 'content' => $content]);
 })->name('root');
 
 Route::group(['prefix' => 'orders'], function () {
@@ -32,6 +34,9 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('contents/edit/home', [ContentController::class, 'edit'])
+Route::get('contents/home/edit', [ContentController::class, 'edit'])
     ->middleware('auth')
-    ->name('cms.edit.home');
+    ->name('cms.edit');
+Route::put('contents/home', [ContentController::class, 'update'])
+    ->middleware('auth')
+    ->name('cms.update');

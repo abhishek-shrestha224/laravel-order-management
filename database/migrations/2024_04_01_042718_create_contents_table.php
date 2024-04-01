@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('contents', function (Blueprint $table) {
-            $table->id();
+            $table->string('name')->primary();
             $table->text('title');
             $table->text('message');
             $table->text('cta_text');
