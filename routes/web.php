@@ -4,7 +4,10 @@ use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn() => view('welcome'));
+Route::get('/', function () {
+    $isLoggedIn = Auth::check(); // Check if the user is logged in
+    return view('welcome', ['isLoggedIn' => $isLoggedIn]); // Pass the variable to the view
+});
 
 Route::get('/orders', [OrderController::class, 'index'])->middleware('auth');
 Route::get('/orders/create', [OrderController::class, 'create']);
