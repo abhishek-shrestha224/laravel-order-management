@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Content;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 class ContentController extends Controller
 {
@@ -43,31 +46,48 @@ class ContentController extends Controller
      */
     public function edit($slug)
     {
-        $content = Content::where('name', 'home')->firstOrFail();
+        $content = Content::where('name', $slug)->firstOrFail();
         return view('cms.edit', ['content' => $content]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Content $content)
+    public function update(Request $request, $slug)
     {
-        $request->validate([
-            'title' => 'nullable|string|max:255',
-            'message' => 'nullable|string|max:255',
-            'cta_text' => 'nullable|string|max:255',
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:255',
+            'message' => 'required|string|max:255',
+            'cta_text' => 'required|string|max:255',
             'bg_img' => 'nullable|mimes:png,jpg,jpeg',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('err', 'Something Went Wrong');
+        }
 
         if ($request->hasFile('bg_img')) {
             $file = $request->file('bg_img');
             $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/', $filename);
+            $filename = 'hero' . '.' . $extension;
+            $path = 'uploads/';
+            $file->move($path, $filename);
 
-            $content->bg_img = $filename;
-            $content->save();
+            $content = Content::where('name', $slug);
+
+            if (File::exists($filename)) {
+                File::delete($filename);
+            }
+
+            $content->update([
+                'title' => $request->title,
+                'message' => $request->message,
+                'cta_text' => $request->cta_text,
+                'bg_img' => $path . $filename,
+            ]);
         }
+
+        return redirect()->route('root');
     }
 
     /**

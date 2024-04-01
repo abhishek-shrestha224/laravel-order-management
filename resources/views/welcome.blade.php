@@ -67,7 +67,8 @@
                 <!--Img Col-->
                 <div class="w-full lg:w-2/5">
                     <!-- Big profile image for side bar (desktop) -->
-                    <img class="hidden rounded-none shadow-2xl lg:block lg:rounded-lg" src="{{ asset('img/img1.avif') }}" />
+                    <img class="hidden rounded-none shadow-2xl lg:block lg:rounded-lg"
+                        src="{{ asset($content->bg_img) }}" />
                 </div>
 
             </div>

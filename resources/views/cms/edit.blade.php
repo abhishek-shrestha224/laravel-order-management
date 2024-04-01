@@ -9,7 +9,8 @@
             Edit Home Page
         </h1>
 
-        <form class="mx-auto flex w-2/3 flex-col gap-4 text-left" action="/orders" method="POST" enctype="multipart/form-data">
+        <form class="mx-auto flex w-2/3 flex-col gap-4 text-left" action="{{ route('cms.update', ['slug' => 'home']) }}"
+            method="POST" enctype="multipart/form-data">
             <a href="{{ route('root') }}">
                 <button
                     class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
@@ -18,6 +19,7 @@
                 </button>
             </a>
             @csrf
+            @method('PUT')
             <div>
                 <label class="mb-2 block text-lg font-bold text-gray-900 dark:text-white" for="title">
                     Title:
@@ -50,7 +52,7 @@
                 </label>
                 <input
                     class="file:text-md block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 file:me-4 file:border-0 file:bg-gray-50 file:px-4 file:py-3 file:font-bold file:tracking-wide file:hover:bg-gray-500 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400 dark:file:bg-gray-600 dark:file:text-gray-100"
-                    type="file" name="bg_img" value="{{ $content->bg_img }}">
+                    type="file" name="bg_img" />
 
             </div>
 
@@ -58,6 +60,6 @@
                 class="mb-2 me-2 cursor-pointer rounded-lg border border-gray-800 px-5 py-2.5 text-center text-lg font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
                 type="submit" value="Submit" />
         </form>
-
+        {{ session('err') }}
     </section>
 @endsection

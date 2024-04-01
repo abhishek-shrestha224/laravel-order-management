@@ -37,6 +37,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('contents/{slug}/edit', [ContentController::class, 'edit'])
     ->middleware('auth')
     ->name('cms.edit');
-Route::put('contents/home', [ContentController::class, 'update'])
+Route::put('contents/{slug}', [ContentController::class, 'update'])
     ->middleware('auth')
     ->name('cms.update');
