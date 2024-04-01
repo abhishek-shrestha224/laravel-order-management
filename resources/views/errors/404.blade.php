@@ -17,7 +17,7 @@
         </div>
         <button class="mt-5">
             <a class="text-accent active:text-accent group relative inline-block text-sm font-medium focus:outline-none focus:ring"
-                href="{{ route('home') }}">
+                href="{{ route('root') }}">
                 <span
                     class="bg-accent absolute inset-0 translate-x-0.5 translate-y-0.5 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
 

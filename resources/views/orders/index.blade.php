@@ -7,20 +7,20 @@
 @section('content')
     <section class="w-screen px-10 py-20">
         <h1 class="mb-4 text-6xl font-bold">All Orders</h1>
-        <a href="/">
+        <a href="{{ route('root') }}">
             <button
                 class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
                 type="button">
                 Go Back Home
             </button>
-        </a>    <a href="/orders/create">
+        </a> <a href="{{ route('orders.create') }}">
             <button
                 class="mb-2 me-2 rounded-lg border border-gray-800 px-5 py-2.5 text-center text-sm font-bold text-gray-900 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-800"
                 type="button">
-               Create New Order
+                Create New Order
             </button>
         </a>
-        <p class="text-gray-400  mb-2 font-bold text-lg">{{ session('message') }}</p>
+        <p class="mb-2 text-lg font-bold text-gray-400">{{ session('message') }}</p>
         <div class="relative overflow-x-auto shadow-md">
             <table class="text-light text-md w-full text-left">
                 <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -76,7 +76,7 @@
                                 </a>
                             </td>
                             <td class="px-6 py-4">
-                                <form action="/orders/{{ $order->id }}" method="POST">
+                                <form action="{{ route('orders.destroy', ['slug' => $order->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input

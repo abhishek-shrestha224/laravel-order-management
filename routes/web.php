@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $isLoggedIn = Auth::check();
     return view('welcome', ['isLoggedIn' => $isLoggedIn]);
-});
+})->name('root');
 
 Route::group(['prefix' => 'orders'], function () {
     Route::get('/', [OrderController::class, 'index'])
